@@ -51,7 +51,7 @@ function SearchPageContent() {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search companies, professionals, products..."
+          placeholder="Search companies, professionals, products.
           className="flex-1 min-w-[200px] border rounded-md px-4 py-2 text-sm"
         />
         <input
@@ -84,3 +84,8 @@ function SearchPageContent() {
 
 export default function SearchPage() {
   return (
+    <Suspense fallback={<div className="mx-auto max-w-5xl px-4 py-10">Loading...</div>}>
+      <SearchPageContent />
+    </Suspense>
+  );
+}
