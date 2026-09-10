@@ -77,5 +77,3 @@ export default function NewRequirementPage() {
     </Suspense>
   );
 }
-EOFgit add src/app/requirements/new/page.tsx
-git push

@@ -51,7 +51,7 @@ function SearchPageContent() {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search companies, professionals, products.
+        placeholder="Search companies, professionals, products."
           className="flex-1 min-w-[200px] border rounded-md px-4 py-2 text-sm"
         />
         <input
