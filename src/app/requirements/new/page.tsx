@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { Suspense, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function NewRequirementPage() {
+function NewRequirementForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const preselectedCompany = searchParams.get("company");
@@ -69,3 +69,13 @@ export default function NewRequirementPage() {
     </div>
   );
 }
+
+export default function NewRequirementPage() {
+  return (
+    <Suspense fallback={<div className="mx-auto max-w-lg px-4 py-12">Loading...</div>}>
+      <NewRequirementForm />
+    </Suspense>
+  );
+}
+EOFgit add src/app/requirements/new/page.tsx
+git push
