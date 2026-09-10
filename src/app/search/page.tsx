@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 interface Result {
@@ -17,7 +17,7 @@ const TYPE_ROUTE: Record<Result["type"], string> = {
   product: "/product/",
 };
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -58,7 +58,7 @@ export default function SearchPage() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
           placeholder="City"
-          className="w-40 border rounded-md px-4 py-2 text-sm"
+          className="flex-1 min-w-[150px] border rounded-md px-4 py-2 text-sm"
         />
         <label className="flex items-center gap-2 text-sm border rounded-md px-3 py-2">
           <input type="checkbox" checked={verifiedOnly} onChange={(e) => setVerifiedOnly(e.target.checked)} />
@@ -81,3 +81,6 @@ export default function SearchPage() {
     </div>
   );
 }
+
+export default function SearchPage() {
+  return (
